@@ -59,7 +59,6 @@ class AutomationFragment : DaggerFragment(), OnStartDragListener, MenuProvider {
     @Inject lateinit var uel: UserEntryLogger
 
     companion object {
-
         const val ID_MENU_ADD = 504
         const val ID_MENU_RUN = 505
     }
@@ -113,6 +112,7 @@ class AutomationFragment : DaggerFragment(), OnStartDragListener, MenuProvider {
                 add()
                 true
             }
+
 
             else        -> super.onContextItemSelected(item)
         }

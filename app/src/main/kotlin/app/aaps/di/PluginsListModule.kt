@@ -9,6 +9,7 @@ import app.aaps.plugins.aps.openAPSSMBDynamicISF.OpenAPSSMBDynamicISFPlugin
 import app.aaps.plugins.aps.Boost.BoostPlugin
 //import app.aaps.plugins.aps.EN.ENPlugin
 import app.aaps.plugins.automation.AutomationPlugin
+import app.aaps.plugins.automationstate.AutomationStatePlugin
 import app.aaps.plugins.configuration.configBuilder.ConfigBuilderPlugin
 import app.aaps.plugins.configuration.maintenance.MaintenancePlugin
 import app.aaps.plugins.constraints.bgQualityCheck.BgQualityCheckPlugin
@@ -287,6 +288,12 @@ abstract class PluginsListModule {
     @Binds
     @AllConfigs
     @IntoMap
+    @IntKey(252)
+    abstract fun bindAutomationStatePlugin(plugin: AutomationStatePlugin): PluginBase
+
+    @Binds
+    @AllConfigs
+    @IntoMap
     @IntKey(255)
     abstract fun bindAutotunePlugin(plugin: AutotunePlugin): PluginBase
 
@@ -493,6 +500,7 @@ abstract class PluginsListModule {
     @IntoMap
     @IntKey(610)
     abstract fun bindAvgSmoothingPlugin(plugin: AvgSmoothingPlugin): PluginBase
+
 
     @Qualifier
     annotation class AllConfigs

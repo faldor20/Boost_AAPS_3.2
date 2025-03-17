@@ -39,6 +39,7 @@ import app.aaps.plugins.automation.actions.ActionRunAutotune
 import app.aaps.plugins.automation.actions.ActionSendSMS
 import app.aaps.plugins.automation.actions.ActionStartTempTarget
 import app.aaps.plugins.automation.actions.ActionStopProcessing
+import app.aaps.plugins.automation.actions.ActionStopProfilePercent
 import app.aaps.plugins.automation.actions.ActionStopTempTarget
 import app.aaps.plugins.automation.elements.Comparator
 import app.aaps.plugins.automation.elements.InputDelta
@@ -47,6 +48,7 @@ import app.aaps.plugins.automation.events.EventAutomationUpdateGui
 import app.aaps.plugins.automation.events.EventLocationChange
 import app.aaps.plugins.automation.services.LocationServiceHelper
 import app.aaps.plugins.automation.triggers.Trigger
+import app.aaps.plugins.automation.triggers.TriggerAutomationState
 import app.aaps.plugins.automation.triggers.TriggerAutosensValue
 import app.aaps.plugins.automation.triggers.TriggerBTDevice
 import app.aaps.plugins.automation.triggers.TriggerBg
@@ -56,6 +58,7 @@ import app.aaps.plugins.automation.triggers.TriggerConnector
 import app.aaps.plugins.automation.triggers.TriggerDelta
 import app.aaps.plugins.automation.triggers.TriggerHeartRate
 import app.aaps.plugins.automation.triggers.TriggerIob
+import app.aaps.plugins.automation.triggers.TriggerProfile
 import app.aaps.plugins.automation.triggers.TriggerLocation
 import app.aaps.plugins.automation.triggers.TriggerProfilePercent
 import app.aaps.plugins.automation.triggers.TriggerPumpLastConnection
@@ -374,6 +377,9 @@ class AutomationPlugin @Inject constructor(
             ActionAlarm(injector),
             ActionCarePortalEvent(injector),
             ActionProfileSwitchPercent(injector),
+            ActionStopProfilePercent(injector),
+            ActionSetAutomationState(injector), ActionProfileSwitch(injector),
+            ActionRunAutotune(injector),
             ActionProfileSwitch(injector),
             ActionRunAutotune(injector),
             ActionSendSMS(injector)
@@ -391,7 +397,8 @@ class AutomationPlugin @Inject constructor(
             TriggerIob(injector),
             TriggerCOB(injector),
             TriggerProfilePercent(injector),
-            TriggerTempTarget(injector),
+            TriggerProfile(injector),
+            TriggerAutomationState(injector), TriggerTempTarget(injector),
             TriggerTempTargetValue(injector),
             TriggerWifiSsid(injector),
             TriggerLocation(injector),
