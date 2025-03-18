@@ -127,7 +127,7 @@ class AutomationStateFragment : DaggerFragment(), MenuProvider {
             holder.binding.stateName.text = stateName
             
             // Clear previous state views
-            val statesContainer = holder.binding.statesContainer as LinearLayout
+            val statesContainer = holder.binding.statesContainer
             statesContainer.removeAllViews()
             
             // Create a horizontal layout for each row of states
