@@ -37,6 +37,7 @@ import app.aaps.plugins.automation.actions.ActionProfileSwitch
 import app.aaps.plugins.automation.actions.ActionProfileSwitchPercent
 import app.aaps.plugins.automation.actions.ActionRunAutotune
 import app.aaps.plugins.automation.actions.ActionSendSMS
+import app.aaps.plugins.automation.actions.ActionSetAutomationState
 import app.aaps.plugins.automation.actions.ActionStartTempTarget
 import app.aaps.plugins.automation.actions.ActionStopProcessing
 import app.aaps.plugins.automation.actions.ActionStopProfilePercent
@@ -58,8 +59,8 @@ import app.aaps.plugins.automation.triggers.TriggerConnector
 import app.aaps.plugins.automation.triggers.TriggerDelta
 import app.aaps.plugins.automation.triggers.TriggerHeartRate
 import app.aaps.plugins.automation.triggers.TriggerIob
-import app.aaps.plugins.automation.triggers.TriggerProfile
 import app.aaps.plugins.automation.triggers.TriggerLocation
+import app.aaps.plugins.automation.triggers.TriggerProfile
 import app.aaps.plugins.automation.triggers.TriggerProfilePercent
 import app.aaps.plugins.automation.triggers.TriggerPumpLastConnection
 import app.aaps.plugins.automation.triggers.TriggerRecurringTime
@@ -378,7 +379,8 @@ class AutomationPlugin @Inject constructor(
             ActionCarePortalEvent(injector),
             ActionProfileSwitchPercent(injector),
             ActionStopProfilePercent(injector),
-            ActionSetAutomationState(injector), ActionProfileSwitch(injector),
+            ActionSetAutomationState(injector),
+            ActionProfileSwitch(injector),
             ActionRunAutotune(injector),
             ActionProfileSwitch(injector),
             ActionRunAutotune(injector),

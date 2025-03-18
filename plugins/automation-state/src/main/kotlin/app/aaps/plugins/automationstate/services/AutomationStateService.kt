@@ -3,6 +3,7 @@ package app.aaps.plugins.automationstate.services
 import app.aaps.core.interfaces.automation.AutomationStateInterface
 import app.aaps.core.interfaces.sharedPreferences.SP
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.encodeToString
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -19,17 +20,17 @@ class AutomationStateService  @Inject constructor(
 
     init {
         val string = sp.getString(spKey, "{}")
-        try {
-            automationStates = Json.decodeFromString(string)
-        } catch (e: Exception) {
-            automationStates = HashMap()
+        automationStates = try {
+            Json.decodeFromString(string)
+        } catch (_: Exception) {
+            HashMap()
         }
 
         val valuesString = sp.getString(stateValuesKey, "{}")
-        try {
-            stateValues = Json.decodeFromString(valuesString)
-        } catch (e: Exception) {
-            stateValues = HashMap()
+        stateValues = try {
+            Json.decodeFromString(valuesString)
+        } catch (_: Exception) {
+            HashMap()
         }
     }
 

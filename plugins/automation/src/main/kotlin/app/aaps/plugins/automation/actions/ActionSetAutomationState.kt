@@ -4,6 +4,7 @@ import android.widget.LinearLayout
 import androidx.annotation.DrawableRes
 import app.aaps.core.interfaces.automation.AutomationStateInterface
 import app.aaps.core.interfaces.plugin.ActivePlugin
+import app.aaps.core.interfaces.pump.PumpEnactResult
 import app.aaps.core.interfaces.queue.Callback
 import app.aaps.core.utils.JsonHelper
 import app.aaps.plugins.automation.R
@@ -71,7 +72,7 @@ class ActionSetAutomationState(injector: HasAndroidInjector) : Action(injector) 
 
     override fun doAction(callback: Callback) {
         automationState.setState(stateNameDropdown.value, stateValueDropdown.value)
-        callback.result(instantiator.providePumpEnactResult().success(true).comment(app.aaps.core.ui.R.string.ok)).run()
+        callback.result(PumpEnactResult(injector).success(true).comment(app.aaps.core.ui.R.string.ok)).run()
     }
 
     override fun toJSON(): String {
